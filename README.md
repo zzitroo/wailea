@@ -19,4 +19,5 @@ exercise. The code also runs with: mvn spring-boot:run (look for it on localhost
 ·        What would you change in the exercise and/or process?
  - I wouldn't change a thing. It was just right
 
+I spent approx 8 hours on the project, not including setup time.
 
