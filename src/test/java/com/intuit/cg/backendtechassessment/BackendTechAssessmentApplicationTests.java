@@ -30,7 +30,13 @@ import static org.mockito.BDDMockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-
+/**
+ * The main design idea behind the tests was to construct one for each of the project
+ * requirements. This way having passing tests means that some part of the desired
+ * functionality is working. The only test that was actually interesting was the 
+ * autobid test. This one required multiple steps in order to prove that the autobid
+ * feature is actually working.
+ */
 @RunWith(SpringRunner.class)
 @WebMvcTest(ProjectController.class)
 public class BackendTechAssessmentApplicationTests {

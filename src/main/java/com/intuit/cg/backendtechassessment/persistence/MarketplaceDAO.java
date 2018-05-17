@@ -18,7 +18,8 @@ import com.intuit.cg.backendtechassessment.utils.CurrencyFormatter;
 /**
  * The MarketplaceDAO represents the data structures that will contain all of the
  * persisted marketplace data. This object stores and returns all marketplace data items
- * that have been initialized.
+ * that have been initialized. I chose to use in-memory, volatile data storage. It
+ * was easier than having a database dependency.
  */
 public class MarketplaceDAO {
 

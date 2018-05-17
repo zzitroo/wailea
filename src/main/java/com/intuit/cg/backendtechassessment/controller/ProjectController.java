@@ -24,6 +24,20 @@ import com.intuit.cg.backendtechassessment.dataobjects.Buyer;
 import com.intuit.cg.backendtechassessment.dataobjects.Project;
 import com.intuit.cg.backendtechassessment.dataobjects.Projects;
 
+/**
+ * This class defines the ReST controller for this marketplace project. Most of the
+ * heavy lifting is done by the MarketplaceDAO. This class simply delegates the
+ * significant data manipulation and storage jobs to the data access object.
+ *
+ * There are some significant shortcomings that did not get addressed:
+ * 1. The project max amount is not respected - that is, winning bids just have to be the
+ *    lowest, but they will still win even if they are over the project's max amount
+ * 2. While the times are stored and tracked, they are not factored into any of the
+ *    current calculations - this controller would need a few more endpoints to help
+ *    manage time and enforce time restrictions
+ * 3. The data structures only offer a limited set of CRUD for the data objects - it 
+ *    wasn't necessary to do all CRUD in order to complete the requirements
+ */
 @RestController
 public class ProjectController {
 
