@@ -77,13 +77,14 @@ public class ProjectController {
 			method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<Project> getProjectById(@PathVariable("id") String id) {
 		Project project = dao.getProjectById(UUID.fromString(id));
+		project.setSelectedBid(null);
+		project.setSelectedBuyer(null);
 		try {
 			Bid bid = dao.findLowestBid(project);
 			project.setSelectedBid(bid);
 			project.setSelectedBuyer(dao.getBuyerById(bid.getBuyerId()));
 		} catch (NoBidFoundException nbfe) {
-			project.setSelectedBid(null);
-			project.setSelectedBuyer(null);
+			// do nothing
 		}
 		if (project != null) {
 			return new ResponseEntity<Project>(project, HttpStatus.OK);

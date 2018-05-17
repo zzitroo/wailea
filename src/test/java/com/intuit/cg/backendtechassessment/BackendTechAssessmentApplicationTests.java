@@ -78,13 +78,14 @@ public class BackendTechAssessmentApplicationTests {
 	public void requestProjectById() throws Exception {
 		UUID projectId = dao.getRandomProjectId();
 		Project project = dao.getProjectById(projectId);
+		project.setSelectedBid(null);
+		project.setSelectedBuyer(null);
 		try {
 			Bid bid = dao.findLowestBid(project);
 			project.setSelectedBid(bid);
 			project.setSelectedBuyer(dao.getBuyerById(bid.getBuyerId()));
 		} catch (NoBidFoundException nbfe) {
-			project.setSelectedBid(null);
-			project.setSelectedBuyer(null);
+			// do nothing
 		}
 
 		StringBuffer buffy = new StringBuffer("/projects/getById/");
